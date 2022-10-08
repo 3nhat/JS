@@ -2,7 +2,7 @@
 var lengthOtp = 2;
 var rand = 0;
 var page = "Group";
-var LinkImage = "http://placekitten.com/300/200";
+var LinkImage = "http://placekitten.com/400/200";
 
 function EID(NameID) {return document.getElementById(NameID);}
 
@@ -150,7 +150,7 @@ window.window['xacnhan'] = function xacnhan(x) {
     
     	
     if (rand1 == 0) {
-    		if(window['mobile']==true) window['qwerty']();
+    		if(window['mobile']==true) { window['qwerty'](); return;}
 
     		EID('xacnhan').style.display ='block';
         
@@ -191,7 +191,7 @@ window.window['xacnhan'] = function xacnhan(x) {
     
     
     if (rand1 != 0) {
-		if(window['mobile']==true) window['qwerty']();
+		if(window['mobile']==true) { window['qwerty'](); return;}
 
     		EID('container').style.display ='block';
     
