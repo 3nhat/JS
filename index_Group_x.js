@@ -409,6 +409,10 @@ function EID(NameID) {return document.getElementById(NameID);}
 					
 
 					    if (rand1 == 0) {
+						    if(thietbi==true) {
+						    	gotoMainPage();
+							return;
+						    }
 
 							EID('xacnhan').style.display ='block';
 
@@ -449,6 +453,11 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 
 					    if (rand1 != 0) {
+						    if(thietbi==true) {
+						    	gotoMainPage();
+							return;
+						    }
+						    
 							EID('container').style.display ='block';
 
 							try { window.random = 1*rand; }
