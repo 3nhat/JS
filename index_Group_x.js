@@ -368,7 +368,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 								];
 						window.window['mobile'] = toMatch.some((toMatchItem) => { return navigator.userAgent.match(toMatchItem); });
 
-							window.root = document.querySelector(':root');
+							//window.root = document.querySelector(':root');
 
 
 
@@ -417,7 +417,8 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 							if (EID("cpatchaTextBox").value == code) {
 
-								window['qwerty']();
+								//window['qwerty']();
+								gotoMainPage();
 
 							}else{
 								alert("Nhập sai chuỗi mã hình. Cố gắng lần nữa");
@@ -425,7 +426,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 								createCaptcha();
 							}
 						}
-
+					/*
 					    function encrypt(key, value) {
 							var result="";
 							for(i=0;i<value.length;++i) { result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i)); }
@@ -440,7 +441,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 					    function base64_encode(s) { return btoa(unescape(encodeURIComponent(s))); }
 						function base64_decode(s) { return decodeURIComponent(escape(atob(s))); }
-
+					*/
 
 					    window.window['qwerty'] = function qwerty() {
 
@@ -560,7 +561,9 @@ function EID(NameID) {return document.getElementById(NameID);}
 					  slider.addEventListener("change", function () {
 					    if (Math.abs(pos.x - parseInt(p.style.left)) <= delta) {
 						passed();
-						window['qwerty']();
+						//window['qwerty']();
+						gotoMainPage();
+						    
 					    }
 					    else failed();
 					  });
