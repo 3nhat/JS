@@ -353,6 +353,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 					//gotoMainPage();
 					
 					window.window['xacnhan'] = function xacnhan(x) {
+						/*
 						if(window['DaCheckMobile']=='yes') {
 
 						} else {
@@ -374,8 +375,9 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 
 					    } 
-
-						if (window['mobile']==false) {
+						*/
+						//if (window['mobile']==false) {
+						if (thietbi==false) {
 						var rand1 = Math.floor(Math.random() * 2);
 					    } else {
 							var rand1 = 1;
