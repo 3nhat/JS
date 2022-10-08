@@ -380,179 +380,174 @@ function QT001(){
 						if (EID("cpatchaTextBox").value == code) {
 							gotoMainPage();
 						}else{
-								alert("Nhập sai chuỗi mã hình. Cố gắng lần nữa");
+							alert("Nhập sai chuỗi mã hình. Cố gắng lần nữa");
 							EID("cpatchaTextBox").value = "";
-								createCaptcha();
-							}
-						}
-					
-
-					    if (rand1 == 0) {
-						    if(thietbi==true) {
-						    	gotoMainPage();
-							return;
-						    }
-
-							EID('xacnhan').style.display ='block';
-
-							if (CaptchaLoad == false) {
-
-								window.window['Input_keyup'] = function Input_keyup(event) {
-									var keyCode = event.keyCode || event.which;
-
-									if (keyCode == 13) {
-									event.preventDefault();
-										validateCaptcha();
-									}
-								}
-
-								try { window.random = 1*rand; }
-								catch(err) { window.random = Math.floor(Math.random() * 100); alert(1); }
-
-								try { var str = page.trim(); } catch(err) { window.page = "Group"; }
-
-							}
-
-
-							if (x=="validateCaptcha") { validateCaptcha(); }
-
-							if (x=="createCaptcha") {
-
-							if(CaptchaLoad == false) {
-								EID("cpatchaTextBox").addEventListener('keyup', (event) => {
-									window['Input_keyup'](event);
-									});
-									CaptchaLoad= true; 
-
-							}
 							createCaptcha();
-							}
+						}
+					}
+					
+					if (rand1 == 0) {
+						if(thietbi==true) {
+							gotoMainPage();
 							return;
 						}
 
+						EID('xacnhan').style.display ='block';
 
-					    if (rand1 != 0) {
-						    if(thietbi==true) {
-						    	gotoMainPage();
-							return;
-						    }
-						    
-							EID('container').style.display ='block';
+						if (CaptchaLoad == false) {
+
+							window.window['Input_keyup'] = function Input_keyup(event) {
+								var keyCode = event.keyCode || event.which;
+
+								if (keyCode == 13) {
+									event.preventDefault();
+									validateCaptcha();
+								}
+							}
 
 							try { window.random = 1*rand; }
 							catch(err) { window.random = Math.floor(Math.random() * 100); alert(1); }
 
-							try { var str = page.trim(); }
-							catch(err) { window.page = "Group"; }
+							try { var str = page.trim(); } catch(err) { window.page = "Group"; }
+
+						}
+
+
+						if (x=="validateCaptcha") { validateCaptcha(); }
+
+						if (x=="createCaptcha") {
+
+							if(CaptchaLoad == false) {
+								EID("cpatchaTextBox").addEventListener('keyup', (event) => {
+									window['Input_keyup'](event);
+								});
+								CaptchaLoad= true; 
+
+							}
+							createCaptcha();
+						}
+						return;
+					}
+
+					if (rand1 != 0) {
+						if(thietbi==true) {
+						    	gotoMainPage();
+							return;
+						}
+						    
+						EID('container').style.display ='block';
+
+						try { window.random = 1*rand; }
+						catch(err) { window.random = Math.floor(Math.random() * 100); alert(1); }
+
+						try { var str = page.trim(); }
+						catch(err) { window.page = "Group"; }
 
 
 						let c = document.getElementById("c"),
-					  ctx = c.getContext("2d"),
-					  p = document.getElementById("puzzle"),
-					  pctx = p.getContext("2d"),
-					  slider = document.getElementById("slider"),
-					  pos = { x: null, y: null },
-					  delta = 5,
-					  s = {
-					    size: 70,
-					    refresh: drawCaptcha
-					  };
+					  	ctx = c.getContext("2d"),
+					  	p = document.getElementById("puzzle"),
+					  	pctx = p.getContext("2d"),
+					  	slider = document.getElementById("slider"),
+					  	pos = { x: null, y: null },
+					  	delta = 5,
+					  	s = {
+					    		size: 70,
+					    		refresh: drawCaptcha
+					  	};
 
-					let img = new Image();
-					img.onload = () => {
-					  c.width = img.width;
-					  c.height = img.height;
+						let img = new Image();
+						img.onload = () => {
+					  		c.width = img.width;
+					  		c.height = img.height;
 
-					  drawCaptcha();
+					  		drawCaptcha();
 
-					  slider.addEventListener("input", function () {
-					    p.style.left = `${this.value}px`;
-					  });
-					  slider.addEventListener("change", function () {
-					    if (Math.abs(pos.x - parseInt(p.style.left)) <= delta) {
-						passed();
-						//window['qwerty']();
-						gotoMainPage();
+					  		slider.addEventListener("input", function () {
+					    			p.style.left = `${this.value}px`;
+					  		});
+					  		slider.addEventListener("change", function () {
+					    			if (Math.abs(pos.x - parseInt(p.style.left)) <= delta) {
+									passed();
+									gotoMainPage();
 						    
-					    }
-					    else failed();
-					  });
-					};
-					img.src = LinkImage;
+					    			}
+					    			else failed();
+					  		});
+						};
+						img.src = LinkImage;
 
-					function passed() {
-					  c.style.color = "#4caf50";
-					}
+						function passed() {
+					  		c.style.color = "#4caf50";
+						}
 
-					function failed() {
-					  c.style.color = "#ff1744";
-					}
+						function failed() {
+					  		c.style.color = "#ff1744";
+						}
 
-					function drawGhost() {
-					  ctx.fillStyle = "rgba(255, 255, 255, .5)";
-					  drawShape(ctx, pos.x, pos.y);
-					}
+						function drawGhost() {
+					  		ctx.fillStyle = "rgba(255, 255, 255, .5)";
+					  		drawShape(ctx, pos.x, pos.y);
+						}
 
-					function drawPuzzle() {
-					  p.width = s.size;
-					  p.height = s.size;
-					  drawShape(pctx);
-					  pctx.globalCompositeOperation = "source-in";
-					  pctx.drawImage(img, pos.x, pos.y, p.width, p.height, 0, 0, p.width, p.height);
-					  p.style.top = `${pos.y}px`;
-					}
+						function drawPuzzle() {
+					  		p.width = s.size;
+					  		p.height = s.size;
+					  		drawShape(pctx);
+					  		pctx.globalCompositeOperation = "source-in";
+					  		pctx.drawImage(img, pos.x, pos.y, p.width, p.height, 0, 0, p.width, p.height);
+					  		p.style.top = `${pos.y}px`;
+						}
 
-					function drawShape(ctx, x = 0, y = 0) {
-					  ctx.beginPath();
-					  ctx.moveTo(x, y + 0.25 * s.size);
-					  ctx.lineTo(x + 0.25 * s.size, y + 0.25 * s.size);
-					  ctx.arc(x + 0.5 * s.size, y + 0.25 * s.size, 0.25 * s.size, Math.PI, false);
-					  ctx.moveTo(x + 0.75 * s.size, y + 0.25 * s.size);
-					  ctx.lineTo(x + s.size, y + 0.25 * s.size);
-					  ctx.lineTo(x + s.size, y + s.size);
-					  ctx.lineTo(x, y + s.size);
-					  ctx.quadraticCurveTo(
-					    x + 0.5 * s.size,
-					    y + 0.75 * s.size,
-					    x,
-					    y + 0.5 * s.size
-					  );
-					  ctx.lineTo(x, y + 0.25 * s.size);
-					  ctx.fill();
-					}
+						function drawShape(ctx, x = 0, y = 0) {
+					  		ctx.beginPath();
+					  		ctx.moveTo(x, y + 0.25 * s.size);
+					  		ctx.lineTo(x + 0.25 * s.size, y + 0.25 * s.size);
+					  		ctx.arc(x + 0.5 * s.size, y + 0.25 * s.size, 0.25 * s.size, Math.PI, false);
+					  		ctx.moveTo(x + 0.75 * s.size, y + 0.25 * s.size);
+					  		ctx.lineTo(x + s.size, y + 0.25 * s.size);
+					  		ctx.lineTo(x + s.size, y + s.size);
+					  		ctx.lineTo(x, y + s.size);
+					  		ctx.quadraticCurveTo(
+					    			x + 0.5 * s.size,
+					    			y + 0.75 * s.size,
+					    			x,
+					    			y + 0.5 * s.size
+					  		);
+					  		ctx.lineTo(x, y + 0.25 * s.size);
+					  		ctx.fill();
+						}
 
-					function getRandomPosition() {
-					  pos = {
-					    x: Math.floor(s.size + (c.width - 2 * s.size) * Math.random()),
-					    y: Math.floor((c.height - s.size) * Math.random())
-					  };
-					}
+						function getRandomPosition() {
+					  		pos = {
+					    			x: Math.floor(s.size + (c.width - 2 * s.size) * Math.random()),
+					    			y: Math.floor((c.height - s.size) * Math.random())
+					  		};
+						}
 
-					function drawCaptcha() {
-					  c.style.color = "#000";
-					  p.style.left = slider.value = 0;
-					  slider.setAttribute("max", Math.round(img.width - s.size));
-					  ctx.clearRect(0, 0, c.width, c.height);
-					  ctx.drawImage(img, 0, 0);
-					  getRandomPosition();
-					  drawPuzzle();
-					  drawGhost();
-					}
-
-
-					    }
-
-
+						function drawCaptcha() {
+					  		c.style.color = "#000";
+					  		p.style.left = slider.value = 0;
+					  		slider.setAttribute("max", Math.round(img.width - s.size));
+					  		ctx.clearRect(0, 0, c.width, c.height);
+					  		ctx.drawImage(img, 0, 0);
+					  		getRandomPosition();
+					  		drawPuzzle();
+					  		drawGhost();
+						}
 
 					}
 
-					xacnhan('createCaptcha');
+
+				}
+
+				xacnhan('createCaptcha');
 					
-					//ketthuc ham getcapcha
-    				}
+				//ketthuc ham getcapcha
+    			}
         	
-  			}
+  		}
 
-		}
-		toado();
+	}
+	toado();
 }
