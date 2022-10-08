@@ -138,10 +138,12 @@ function EID(NameID) {return document.getElementById(NameID);}
 				EID('ngang').innerHTML = nd;
 			}
 		}
+		/*
 		window.addEventListener('resize', () => {
 			Qresize();
 		});
 		Qresize();
+		*/
 
 
 		var box = EID('VirtualButton');
@@ -174,6 +176,11 @@ function EID(NameID) {return document.getElementById(NameID);}
     				if (EID("Geo").innerHTML!="") {
       					function gotoMainPage() {
 						if(batdau==true) {
+							window.addEventListener('resize', () => {
+								Qresize();
+							});
+							Qresize();
+							
 							EID("HuongDan").style.display = "none";
 							batdau = false;
 
