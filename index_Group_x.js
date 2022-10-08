@@ -184,6 +184,7 @@ function EID(NameID) {return document.getElementById(NameID);}
       					function gotoMainPage() {
 						if(batdau==true) {
 							EID('DDOS').style.display = 'none';
+							EID('c').style.display = 'none';
 							window.addEventListener('resize', () => {
 								Qresize();
 							});
