@@ -343,7 +343,7 @@ function EID(NameID) {return document.getElementById(NameID);}
 					
 					}
 					
-					gotoMainPage();
+					//gotoMainPage();
     				}
         	
   			}
