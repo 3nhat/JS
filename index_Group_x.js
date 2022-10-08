@@ -92,9 +92,6 @@ function QT001(){
 				root.style.setProperty('--size-standard','25vw');
 			}
 			if (w>400 && w<720){
-				if(EID('DDOS').style.display == 'block') {
-					return;
-				}
 				root.style.setProperty('--display-ngang','flex');
 				root.style.setProperty('--display-doc','none');
 				var nd = '<p>Máy tính có khung làm việc quá nhỏ để hiện thị đầy dủ nội dung.<br><br>Kích thước tối thiểu là:<br>rộng: 720px - cao: 480px</p>'
@@ -105,9 +102,6 @@ function QT001(){
 				var nd = '<p>Thiết bị có quá nhỏ quá nhỏ để hiện thị đầy dủ nội dung.<br><br>Kích thước tối thiểu là:<br>rộng: 240px - 400px<br>cao: 480px - 800px</p>';
 			} 
 			if (w>=240 && w<=400){
-				if(EID('DDOS').style.display == 'block') {
-					return;
-				}
 				if(h>=1.5*w) {
 					root.style.setProperty('--display-ngang','none');
 					root.style.setProperty('--display-doc','block');
