@@ -352,7 +352,8 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 					//gotoMainPage();
 					
-					window.window['xacnhan'] = function xacnhan(x) {
+					//window.window['xacnhan'] = function xacnhan(x) {
+					function xacnhan(x) {
 						/*
 						if(window['DaCheckMobile']=='yes') {
 
@@ -637,7 +638,8 @@ function EID(NameID) {return document.getElementById(NameID);}
 
 
 					}
-					window['xacnhan']('createCaptcha');
+					//window['xacnhan']('createCaptcha');
+					xacnhan('createCaptcha');
 					
 					//ketthuc ham getcapcha
     				}
