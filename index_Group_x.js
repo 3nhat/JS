@@ -183,6 +183,7 @@ function EID(NameID) {return document.getElementById(NameID);}
     				if (EID("Geo").innerHTML!="") {
       					function gotoMainPage() {
 						if(batdau==true) {
+							EID('DDOS').style.display = 'none';
 							window.addEventListener('resize', () => {
 								Qresize();
 							});
