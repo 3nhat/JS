@@ -133,8 +133,8 @@ function QT001(){
 			root.style.setProperty('--display-content1','block');
 			root.style.setProperty('--display-content2','none');
 			root.style.setProperty('--display-content3','none');
-			if(w > 1.5 * h) {
-				 alert(1)
+			if(w >= 2 * h) {
+				 alert(w + '_' + 2*h);
 				root.style.setProperty('--display-ngang','flex');
 				root.style.setProperty('--display-doc','none');
 				var nd = '<p>Chương trình không được thiết kế để hoạt động theo chiều ngang của thiết bị</p>';
