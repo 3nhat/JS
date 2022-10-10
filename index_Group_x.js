@@ -133,7 +133,7 @@ function QT001(){
 			root.style.setProperty('--display-content1','block');
 			root.style.setProperty('--display-content2','none');
 			root.style.setProperty('--display-content3','none');
-			if(w > h) {
+			if(w > 1.5 * h) {
 				 alert(1)
 				root.style.setProperty('--display-ngang','flex');
 				root.style.setProperty('--display-doc','none');
