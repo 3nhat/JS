@@ -84,7 +84,7 @@ function QT001(){
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 		var w = window.innerWidth;
 		var h = window.innerHeight;
-    alert(thietbi)
+ 
 		if (thietbi == false) {
 			root.style.setProperty('--heso-cotcontent',3);
 			root.style.setProperty('--thietbi',1);
@@ -128,12 +128,13 @@ function QT001(){
 			EID('ngang').innerHTML = nd;
 
 		} else {
-      alert(1)
+     
 			root.style.setProperty('--heso-cotcontent',1);
 			root.style.setProperty('--display-content1','block');
 			root.style.setProperty('--display-content2','none');
 			root.style.setProperty('--display-content3','none');
 			if(w > h) {
+				 alert(1)
 				root.style.setProperty('--display-ngang','flex');
 				root.style.setProperty('--display-doc','none');
 				var nd = '<p>Chương trình không được thiết kế để hoạt động theo chiều ngang của thiết bị</p>';
