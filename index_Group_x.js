@@ -321,16 +321,12 @@ function QT001(){
                 x6 = x6 + "]QQQ[" + "select A, B, C, D, E";
                 var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
                 
-					alert(exp);
-		//TaoHuyWorker(exp);
+		
+		TaoHuyWorker(exp);
 
               }
 
-              window.window['Func_Run02a'] = function(x5){
-                alert(window[x5]);
-              }
-
-              Send_Worker_1();
+             
 				
 				
       				function gotoMainPage() {
