@@ -93,6 +93,67 @@ function QT001(){
 							}
 	
 	
+	function worker_1(x0, x1){
+                var x2 = "NoLink";
+                var str = "function T(exp){ " +
+                                  "fetch (exp[1])" +
+                                    ".then(x => x.text())" +
+                                    ".then(y => postMessage([exp[0],y]));" +
+                          "} " +
+                          "function Q() { self.addEventListener('message', function(e) { T(e.data); }, false); } " +
+                          "Q();";
+
+                var x3 = str;
+                var x4 = 'Func_Run02a';
+                var x5 = 'QT';
+                var x6 = 'Cộng hoà xã hội';
+                var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
+                  
+                TaoHuyWorker(exp);
+              }  
+              
+              function TaoHuyWorker(exp){
+                var arr = exp.split(']TTT[');
+                var x0 = arr[0].trim(); //xác định tạo hay xoá hay gửi thông tin
+                var x1 = arr[1].trim(); //Biến lưu trên worker.js
+                var x2 = arr[2].trim(); //Đường dẫn file worker.js
+                var x3 = arr[3].trim(); //Chuỗi tạo hàm chạy cho worker
+                var x4 = arr[4].trim(); //Hàm nhận thông tin worker trả về
+                var x5 = arr[5].trim(); //tên biến của Hàm nhận thông tin worker trả về
+                var x6 = arr[6].trim(); //Nội dung gửi worker
+                
+                  
+                function startWorker(){
+                  if(typeof(Worker)!=="undefined") {
+                    if(x3=='NoStringFunc'){
+                      window.window[x1] = new Worker(x2); 
+                    } else {
+                      var blob = new Blob([x3]);
+                      var blobURL = window.URL.createObjectURL(blob);
+                      window.window[x1] = new Worker(blobURL);
+                    }
+                    window[x1].onmessage = function (event) { 
+                      window.window[x5] = event.data;
+                      window[x4](x5);
+                    };
+                            
+                  } else {
+                    alert("Sorry, your browser does not support Web Workers...");
+                  }
+                }
+
+                function stopWorker(){ 
+                  window[x1].terminate(); 
+                }
+                  
+                if(x0=='1') startWorker();
+                if(x0=='0') stopWorker();
+                if(x0=='2') window[x1].postMessage([x1,x6]);
+
+              }
+	
+	worker_1('1','getND');
+	
 	
 	function Qtimthietbi() {
 		const toMatch = [
