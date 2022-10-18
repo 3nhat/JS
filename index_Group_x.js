@@ -17,6 +17,83 @@ function QT001(){
 	window.CaptchaLoad = false;
 	window.charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
 	
+	function GetLink() {
+								var arr1 = [
+									['AKfycbw8Uc', 'np_fb0', 'GDkg4oYf', 'fP9GJ', 'DwSeGEwsS', 'qJT12Uuv', 'Vsh8CQ1dU'],
+									['AKfycbygb-', 'BCkkPH', 'GgPKWE5U', 'jBLI6', 'qL-dC3ily', 'j5N2Zi'],
+									['AKfycbz_x3', 'pT9792', 'hA6_cNtY', 'JgoGP', '2Ez0vXF3N', 'Lt4EJu-A'],
+									['AKfycby3wK', 'kQa0Y7', 'b9n16dS9', 'mj7vG', 'ExEqTz7Dl', 'oNyMRs'],
+									['AKfycbxTTa', 'LGsqUK', 'I84KMZk7', 'TQRbH', 'AgGWmupmD', 'NYN1FlIQ'],
+									['AKfycbyFN0', 'Dg2yNi', '3gU32aNH', 'nR9j6', 'SLx7YsZsT', 'CP-TQ1Xg'],
+									['AKfycbwQiv', 'cbzAr-', 'nDL4Dm5n', '8Yg0y', '_zHGIIeNa', 'grCfk7ow'],
+									['AKfycbzG6k', '3db8wz', 'uDr8osP3', 'g1EWY', 'WZD1vr_BF', 'WDF0zh'],								
+									['AKfycbyZ0n', 'EjfMeL', 'CvWWyBzJ', 'XpBIw', 'L-Ey3Fz5T', 'tFB054'],
+									['AKfycbzq5D', 'yl9_Ug', 'Th6r90oI', '4PYzR', 'zWwbASbsZ', '4JpjQZFA'],
+									['AKfycbyaSx', 'LfzClh', '5lzzSNV6', '_h8Fe', 'RZOpckU6K', 'tgYs2C9w'],
+									['AKfycbzKUn', 'LZPfDV', 'scy5oLBR', 'i_VVi', 'K7Rc4VIT9', 'QszoB6'],
+									['AKfycbywWr', 'gxjUzI', '2R37OAWh', 'Vuw4T', 'qIPS6p9U6', 'BUk8Jr7g'],
+									['AKfycbwDLI', '6d5-Q1', 'zYYvfn2Z', 'cGTj8', 'MBKFKKfs1', 'jzWk8ItQ'],
+									['AKfycbzBUB', 'HufCgz', 'fjPApLdS', 'l_-be', 'g1DkRep0U', 'Jt8WcPhQ'],
+									['AKfycbwX-X', 'Y0FA87', 'wgfTFgXt', 'xeeVV', 'ckPWAw-Vg', '31eeI5'],
+									['AKfycbzUSh', 'nK9R_j', '-AsKnkeu', 'pfaz8', 'cxcjyCAWH', 'wh6lp5xg'],
+									['AKfycbynUc', 'Crv3jh', 'VKDmCQNJ', 'aeihA', 'b6Avi1VeJ', 'QrFhs7'],
+									['AKfycbwNyZ', 'XrgTvq', 'RpDkPjMx', 'keDGh', 'xTROrNMrx', 'sX34oy'],
+									['AKfycbzKZj', 'UGkvPU', 'jXifP4XW', 'F4MBB', '0SanMh-T9', 'jnglBCWA'],
+									['AKfycby4Tj', 'okHViF', 'FmPkoGWh', '6Fn4Y', 'ob34RcKeZ', 'sjsxtxQg'],
+									['AKfycbyjqy', '0cK8Jw', '_9HT-_9d', 'KqF1L', 'Q4aUtSvSf', 'aJ2kWp'],
+									['AKfycbzKoT', 'gZFAwD', 'V0AhOKjf', '6H8hi', 'kSAU2bpKg', 'ESQO4u']
+									];
+
+								var rand = Math.floor(Math.random() * (arr1.length-1));
+								var script_url="";
+								for (var i=0;i<arr1[rand].length;i++) {
+									script_url = script_url + arr1[rand][i];
+								}
+								script_url =  "https://script.google.com/macros/s/" + script_url + "/exec";
+								var linkexec = "https://script.google.com/macros/s/AKfycbyU5sTwq9NyhycuxnJAc0EVoqcrrkGE1X5lkAfahV5h0Be7v_hz/exec";
+								var str1 = window.location.href;
+
+								if (test=="w3s") {
+									var link = script_url;
+								} else {
+									var link = (str1.indexOf('https://3nhat.github.io/')>=0) ? script_url : "";
+								}
+
+								if (link=="") {
+									EID("HuongDan").innerHTML = "Chương trình không được chạy từ trang chính. Cám ơn bạn đã quan tâm đến chương trình";
+									return link;
+								}
+
+								var timthay = str1.indexOf('zalo');
+								if (timthay>0) {
+									for (var j=timthay; j>=0; j--) {
+										var v = str1.substring(j,j+1);
+										if (v=="?" || v=="&") {
+											str1 = str1.substring(0,j);
+											break;
+										}
+									}
+								}
+								var str4 = (timthay>0) ? "]QQQ[zalo" : "";
+								var strArr = str1.split('ID=');
+								str1 = strArr[0];
+								var str2="";
+								if (strArr.length>1) {
+									str2 = "ID=" + strArr[1] + "]QQQ[";
+								} 
+
+								strArr = str1.split('P=');
+
+								var str3 = (strArr.length>1) ? strArr[1] : "Pr01";
+								var str3 = (strArr.length>1) ? strArr[1] : DefaultPage;
+
+								//link = script_url + "?P=" + str3 + "&para1=F001" + "&para2=" + str3 + "]QQQ[100nBtoDN7MupVz8lYQZzZw5zdG_9TgbFKJmuG007OTI]QQQ[" + str3 + "]QQQ[select A, B, C, D" + str2 + str4;
+								link = script_url + "?P=" + str3 + "&para1=F001" + "&para2=" + "none]QQQ[func]QQQ[GetDataServer]TTT[Khoitao";
+								return link;
+							}
+	
+	
+	
 	function Qtimthietbi() {
 		const toMatch = [
 				/Android/i,
@@ -262,80 +339,7 @@ function QT001(){
 								return decodeURIComponent(escape(atob(s)));
 							}
 
-							function GetLink() {
-								var arr1 = [
-									['AKfycbw8Uc', 'np_fb0', 'GDkg4oYf', 'fP9GJ', 'DwSeGEwsS', 'qJT12Uuv', 'Vsh8CQ1dU'],
-									['AKfycbygb-', 'BCkkPH', 'GgPKWE5U', 'jBLI6', 'qL-dC3ily', 'j5N2Zi'],
-									['AKfycbz_x3', 'pT9792', 'hA6_cNtY', 'JgoGP', '2Ez0vXF3N', 'Lt4EJu-A'],
-									['AKfycby3wK', 'kQa0Y7', 'b9n16dS9', 'mj7vG', 'ExEqTz7Dl', 'oNyMRs'],
-									['AKfycbxTTa', 'LGsqUK', 'I84KMZk7', 'TQRbH', 'AgGWmupmD', 'NYN1FlIQ'],
-									['AKfycbyFN0', 'Dg2yNi', '3gU32aNH', 'nR9j6', 'SLx7YsZsT', 'CP-TQ1Xg'],
-									['AKfycbwQiv', 'cbzAr-', 'nDL4Dm5n', '8Yg0y', '_zHGIIeNa', 'grCfk7ow'],
-									['AKfycbzG6k', '3db8wz', 'uDr8osP3', 'g1EWY', 'WZD1vr_BF', 'WDF0zh'],								
-									['AKfycbyZ0n', 'EjfMeL', 'CvWWyBzJ', 'XpBIw', 'L-Ey3Fz5T', 'tFB054'],
-									['AKfycbzq5D', 'yl9_Ug', 'Th6r90oI', '4PYzR', 'zWwbASbsZ', '4JpjQZFA'],
-									['AKfycbyaSx', 'LfzClh', '5lzzSNV6', '_h8Fe', 'RZOpckU6K', 'tgYs2C9w'],
-									['AKfycbzKUn', 'LZPfDV', 'scy5oLBR', 'i_VVi', 'K7Rc4VIT9', 'QszoB6'],
-									['AKfycbywWr', 'gxjUzI', '2R37OAWh', 'Vuw4T', 'qIPS6p9U6', 'BUk8Jr7g'],
-									['AKfycbwDLI', '6d5-Q1', 'zYYvfn2Z', 'cGTj8', 'MBKFKKfs1', 'jzWk8ItQ'],
-									['AKfycbzBUB', 'HufCgz', 'fjPApLdS', 'l_-be', 'g1DkRep0U', 'Jt8WcPhQ'],
-									['AKfycbwX-X', 'Y0FA87', 'wgfTFgXt', 'xeeVV', 'ckPWAw-Vg', '31eeI5'],
-									['AKfycbzUSh', 'nK9R_j', '-AsKnkeu', 'pfaz8', 'cxcjyCAWH', 'wh6lp5xg'],
-									['AKfycbynUc', 'Crv3jh', 'VKDmCQNJ', 'aeihA', 'b6Avi1VeJ', 'QrFhs7'],
-									['AKfycbwNyZ', 'XrgTvq', 'RpDkPjMx', 'keDGh', 'xTROrNMrx', 'sX34oy'],
-									['AKfycbzKZj', 'UGkvPU', 'jXifP4XW', 'F4MBB', '0SanMh-T9', 'jnglBCWA'],
-									['AKfycby4Tj', 'okHViF', 'FmPkoGWh', '6Fn4Y', 'ob34RcKeZ', 'sjsxtxQg'],
-									['AKfycbyjqy', '0cK8Jw', '_9HT-_9d', 'KqF1L', 'Q4aUtSvSf', 'aJ2kWp'],
-									['AKfycbzKoT', 'gZFAwD', 'V0AhOKjf', '6H8hi', 'kSAU2bpKg', 'ESQO4u']
-									];
-
-								var rand = Math.floor(Math.random() * (arr1.length-1));
-								var script_url="";
-								for (var i=0;i<arr1[rand].length;i++) {
-									script_url = script_url + arr1[rand][i];
-								}
-								script_url =  "https://script.google.com/macros/s/" + script_url + "/exec";
-								var linkexec = "https://script.google.com/macros/s/AKfycbyU5sTwq9NyhycuxnJAc0EVoqcrrkGE1X5lkAfahV5h0Be7v_hz/exec";
-								var str1 = window.location.href;
-
-								if (test=="w3s") {
-									var link = script_url;
-								} else {
-									var link = (str1.indexOf('https://3nhat.github.io/')>=0) ? script_url : "";
-								}
-
-								if (link=="") {
-									EID("HuongDan").innerHTML = "Chương trình không được chạy từ trang chính. Cám ơn bạn đã quan tâm đến chương trình";
-									return link;
-								}
-
-								var timthay = str1.indexOf('zalo');
-								if (timthay>0) {
-									for (var j=timthay; j>=0; j--) {
-										var v = str1.substring(j,j+1);
-										if (v=="?" || v=="&") {
-											str1 = str1.substring(0,j);
-											break;
-										}
-									}
-								}
-								var str4 = (timthay>0) ? "]QQQ[zalo" : "";
-								var strArr = str1.split('ID=');
-								str1 = strArr[0];
-								var str2="";
-								if (strArr.length>1) {
-									str2 = "ID=" + strArr[1] + "]QQQ[";
-								} 
-
-								strArr = str1.split('P=');
-
-								var str3 = (strArr.length>1) ? strArr[1] : "Pr01";
-								var str3 = (strArr.length>1) ? strArr[1] : DefaultPage;
-
-								//link = script_url + "?P=" + str3 + "&para1=F001" + "&para2=" + str3 + "]QQQ[100nBtoDN7MupVz8lYQZzZw5zdG_9TgbFKJmuG007OTI]QQQ[" + str3 + "]QQQ[select A, B, C, D" + str2 + str4;
-								link = script_url + "?P=" + str3 + "&para1=F001" + "&para2=" + "none]QQQ[func]QQQ[GetDataServer]TTT[Khoitao";
-								return link;
-							}
+							
 
 							RunFirstBegin();
 
