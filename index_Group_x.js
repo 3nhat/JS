@@ -101,6 +101,47 @@ function QT001(){
 		return "bạn muốn tải lại trang chương trình?";
 	});
 
+  function TaoHuyWorker(exp){
+                var arr = exp.split(']TTT[');
+                var x0 = arr[0].trim(); //xác định tạo hay xoá hay gửi thông tin
+                var x1 = arr[1].trim(); //Biến lưu trên worker.js
+                var x2 = arr[2].trim(); //Đường dẫn file worker.js
+                var x3 = arr[3].trim(); //Chuỗi tạo hàm chạy cho worker
+                var x4 = arr[4].trim(); //Hàm nhận thông tin worker trả về
+                var x5 = arr[5].trim(); //tên biến của Hàm nhận thông tin worker trả về
+                var x6 = arr[6].trim(); //Nội dung gửi worker
+                
+                  
+                function startWorker(){
+                  if(typeof(Worker)!=="undefined") {
+                    if(x3=='NoStringFunc'){
+                      window.window[x1] = new Worker(x2); 
+                    } else {
+                      var blob = new Blob([x3]);
+                      var blobURL = window.URL.createObjectURL(blob);
+                      window.window[x1] = new Worker(blobURL);
+                    }
+                    window[x1].onmessage = function (event) { 
+                      window.window[x5] = event.data;
+                      window[x4](x5);
+                    };
+                            
+                  } else {
+                    alert("Sorry, your browser does not support Web Workers...");
+                  }
+                }
+
+                function stopWorker(){ 
+                  window[x1].terminate(); 
+                }
+                  
+                if(x0=='1') startWorker();
+                if(x0=='0') stopWorker();
+                if(x0=='2') window[x1].postMessage([x1,x6]);
+
+  }
+  worker_1('1','getND'); //1 là khởi tạo worker
+
   function encrypt(key, value) {
 								var result="";
 								for(i=0;i<value.length;++i) {
@@ -328,45 +369,7 @@ function QT001(){
                 TaoHuyWorker(exp);
               }  
               
-              function TaoHuyWorker(exp){
-                var arr = exp.split(']TTT[');
-                var x0 = arr[0].trim(); //xác định tạo hay xoá hay gửi thông tin
-                var x1 = arr[1].trim(); //Biến lưu trên worker.js
-                var x2 = arr[2].trim(); //Đường dẫn file worker.js
-                var x3 = arr[3].trim(); //Chuỗi tạo hàm chạy cho worker
-                var x4 = arr[4].trim(); //Hàm nhận thông tin worker trả về
-                var x5 = arr[5].trim(); //tên biến của Hàm nhận thông tin worker trả về
-                var x6 = arr[6].trim(); //Nội dung gửi worker
-                
-                  
-                function startWorker(){
-                  if(typeof(Worker)!=="undefined") {
-                    if(x3=='NoStringFunc'){
-                      window.window[x1] = new Worker(x2); 
-                    } else {
-                      var blob = new Blob([x3]);
-                      var blobURL = window.URL.createObjectURL(blob);
-                      window.window[x1] = new Worker(blobURL);
-                    }
-                    window[x1].onmessage = function (event) { 
-                      window.window[x5] = event.data;
-                      window[x4](x5);
-                    };
-                            
-                  } else {
-                    alert("Sorry, your browser does not support Web Workers...");
-                  }
-                }
-
-                function stopWorker(){ 
-                  window[x1].terminate(); 
-                }
-                  
-                if(x0=='1') startWorker();
-                if(x0=='0') stopWorker();
-                if(x0=='2') window[x1].postMessage([x1,x6]);
-
-              }
+              
             
               function Send_Worker_1(){
                 var x0 = '2';
@@ -386,6 +389,7 @@ function QT001(){
                 x6 = x6 + "]QQQ[" + "select A, B, C, D, E";
                 var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
                 TaoHuyWorker(exp);
+                alert(1);
 
               }
 
@@ -393,7 +397,7 @@ function QT001(){
                 alert(window[x5]);
               }
 						
-              worker_1('1','getND'); //1 là khởi tạo worker
+              
               Send_Worker_1();
 
 						}
