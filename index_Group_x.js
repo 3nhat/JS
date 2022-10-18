@@ -313,9 +313,9 @@ function QT001(){
                 var x4 = 'Func_Run02a';
                 var x5 = 'QT';
 
-                var rand = Math.floor(Math.random() * (window['ALL_LINK'].length-1));
-                var script_id = window['ALL_LINK'][rand];
-                var script_id1 = GetLink(script_id);
+                //var rand = Math.floor(Math.random() * (window['ALL_LINK'].length-1));
+                //var script_id = window['ALL_LINK'][rand];
+                var script_id1 = GetLink();
 
                 var x6 = "https://script.google.com/macros/s/" + script_id1 + "/exec";
                 x6 = x6 + "?P=Express&para1=F001&para2=none]QQQ[" + '1xO2fOPwAjAEdeR_muzIRRPcSzG6lD3Z4VxTcOI9QP44'; //link MenuCuocQuocGia
