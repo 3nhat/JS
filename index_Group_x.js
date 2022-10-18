@@ -328,7 +328,7 @@ function QT001(){
 		window.window['Func_Run02a'] = function(x5){
                 alert(window[x5]);
               }
-             
+             Send_Worker_1();
 				
 				
       				function gotoMainPage() {
