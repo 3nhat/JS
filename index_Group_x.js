@@ -325,7 +325,9 @@ function QT001(){
 		TaoHuyWorker(exp);
 
               }
-
+		window.window['Func_Run02a'] = function(x5){
+                alert(window[x5]);
+              }
              
 				
 				
