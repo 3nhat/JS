@@ -16,8 +16,6 @@ window.addEventListener('DOMContentLoaded', (event) => { QT001(); });
 function QT001(){
 	window.CaptchaLoad = false;
 	window.charsArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
-
-
 	
 	function Qtimthietbi() {
 		const toMatch = [
@@ -79,28 +77,6 @@ function QT001(){
 	window.addEventListener('beforeunload', function (e) {
 		return "bạn muốn tải lại trang chương trình?";
 	});
-
-  function encrypt(key, value) {
-								var result="";
-								for(i=0;i<value.length;++i) {
-									result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i));
-								}
-								return result;
-							}
-	function decrypt(key, value) {
-								var result="";
-								for(i=0;i<value.length;++i) {
-									result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i));
-								}
-								return result;
-							}
-
-	function base64_encode(s) {      
-								return btoa(unescape(encodeURIComponent(s)));
-							}
-	function base64_decode(s) {      
-								return decodeURIComponent(escape(atob(s)));
-							}
 		
 	function Qresize() {
 		let vh = window.innerHeight * 0.01;
@@ -172,24 +148,36 @@ function QT001(){
 			EID('ngang').innerHTML = nd;
 		}
 	}
+/* Không cần
+	var box = EID('VirtualButton');
+	box.addEventListener('touchmove', function(e) {
+		var touchLocation = e.targetTouches[0];
+		box.style.left = (touchLocation.pageX - box.offsetWidth/2) + 'px';
+	    	box.style.top = (touchLocation.pageY - box.offsetHeight/2) + 'px';
+	})
 
+	box.addEventListener('touchend', function(e) {
+	    	var x = parseInt(box.style.left);
+	    	var y = parseInt(box.style.top);
+	})
+*/
 	function toado(){
 		EID("Geo").innerHTML=="";
 		getLocation();
 		function getLocation() {
-      EID("HuongDan").style.display = "block";
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else { 
-        alert("Geolocation is not supported by this browser.");
-      }
-  	}
+            EID("HuongDan").style.display = "block";
+        		if (navigator.geolocation) {
+        			navigator.geolocation.getCurrentPosition(showPosition);
+        		} else { 
+        			alert("Geolocation is not supported by this browser.");
+        		}
+  		}
         
-  	function showPosition(position) {
+  		function showPosition(position) {
 			EID("Geo").innerHTML = position.coords.latitude + "][" + position.coords.longitude;
-    	if (EID("Geo").innerHTML!="") {
-      	function gotoMainPage() {
-			    if(batdau==true) {
+    			if (EID("Geo").innerHTML!="") {
+      				function gotoMainPage() {
+					if(batdau==true) {
 						EID('DDOS').style.display = 'none';
 						EID('c').style.display = 'none';
 						window.addEventListener('resize', () => {
@@ -201,6 +189,79 @@ function QT001(){
 						batdau = false;
 
 						window.window["Begin"] = function Begin() {
+							var x0='get';
+							var x1='slag';    
+
+							async function RunFirstBegin() {
+								let promise = new Promise((resolve, reject) => {
+									setTimeout(function(){
+										var url = GetLink();
+										if (x0=='get') { QuangBegin(resolve, url, x1); }
+									},5);
+								});
+								let result = await promise; 
+								if (result=="done!") { RunAfterBegin(); }
+							}
+
+							function QuangBegin(resolve, url) {
+								window.window[x1];
+
+								$.getJSON(url, function (json) {
+									resolve("done!");
+									window[x1] = json.records.map(doc => Object.values(doc));
+									window[x1].map(function mapper(s) {
+										if (Array.isArray(s)) {
+											return s.map(mapper);
+										} else {
+											return s.toString().trim();
+										}
+									});
+								});
+							}
+
+							function RunAfterBegin() {
+								for (var i=0; i<window[x1].length; i++) {
+									var str = window[x1][i][1];
+									var str1 = window[x1][i][2];
+									if(str.indexOf('Khoitao')>=0) {
+										var str2 = window.location.href;
+										var bd = str2.indexOf('P=') + 2;
+										var kt = str2.indexOf('&');
+										kt = (kt>0) ? kt : str2.length;
+										str2 = str2.substring(bd, kt);
+										str1 = str1.replace(/\THAYTHECHUONGTRINH/gi, str2)
+									}
+									this[window[x1][i][1]] = new Function('return ' + str1)();
+									try {
+										this[window[x1][i][1]]();
+									}
+									catch(err) { }
+								}
+
+							}
+
+							function encrypt(key, value) {
+								var result="";
+								for(i=0;i<value.length;++i) {
+									result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i));
+								}
+								return result;
+							}
+							function decrypt(key, value) {
+								var result="";
+								for(i=0;i<value.length;++i) {
+									result+=String.fromCharCode(key[i % key.length]^value.charCodeAt(i));
+								}
+								return result;
+							}
+
+							function base64_encode(s) {      
+								return btoa(unescape(encodeURIComponent(s)));
+							}
+							function base64_decode(s) {      
+								return decodeURIComponent(escape(atob(s)));
+							}
+
 							function GetLink() {
 								var arr1 = [
 									['AKfycbw8Uc', 'np_fb0', 'GDkg4oYf', 'fP9GJ', 'DwSeGEwsS', 'qJT12Uuv', 'Vsh8CQ1dU'],
@@ -276,92 +337,7 @@ function QT001(){
 								return link;
 							}
 
-              function worker_1(x0, x1){
-                var x2 = "NoLink";
-                var str = "function T(exp){ " +
-                                  "fetch (exp[1])" +
-                                    ".then(x => x.text())" +
-                                    ".then(y => postMessage([exp[0],y]));" +
-                          "} " +
-                          "function Q() { self.addEventListener('message', function(e) { T(e.data); }, false); } " +
-                          "Q();";
-
-                var x3 = str;
-                var x4 = 'Func_Run02a';
-                var x5 = 'QT';
-                var x6 = 'Cộng hoà xã hội';
-                var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
-                  
-                TaoHuyWorker(exp);
-              }  
-              
-              function TaoHuyWorker(exp){
-                var arr = exp.split(']TTT[');
-                var x0 = arr[0].trim(); //xác định tạo hay xoá hay gửi thông tin
-                var x1 = arr[1].trim(); //Biến lưu trên worker.js
-                var x2 = arr[2].trim(); //Đường dẫn file worker.js
-                var x3 = arr[3].trim(); //Chuỗi tạo hàm chạy cho worker
-                var x4 = arr[4].trim(); //Hàm nhận thông tin worker trả về
-                var x5 = arr[5].trim(); //tên biến của Hàm nhận thông tin worker trả về
-                var x6 = arr[6].trim(); //Nội dung gửi worker
-                
-                  
-                function startWorker(){
-                  if(typeof(Worker)!=="undefined") {
-                    if(x3=='NoStringFunc'){
-                      window.window[x1] = new Worker(x2); 
-                    } else {
-                      var blob = new Blob([x3]);
-                      var blobURL = window.URL.createObjectURL(blob);
-                      window.window[x1] = new Worker(blobURL);
-                    }
-                    window[x1].onmessage = function (event) { 
-                      window.window[x5] = event.data;
-                      window[x4](x5);
-                    };
-                            
-                  } else {
-                    alert("Sorry, your browser does not support Web Workers...");
-                  }
-                }
-
-                function stopWorker(){ 
-                  window[x1].terminate(); 
-                }
-                  
-                if(x0=='1') startWorker();
-                if(x0=='0') stopWorker();
-                if(x0=='2') window[x1].postMessage([x1,x6]);
-
-              }
-            
-              function Send_Worker_1(){
-                var x0 = '2';
-                var x1 = 'getND';
-                var x2 =  "NoLink"
-                var x3 = "NoStringFunc";
-                var x4 = 'Func_Run02a';
-                var x5 = 'QT';
-
-                var rand = Math.floor(Math.random() * (window['ALL_LINK'].length-1));
-                var script_id = window['ALL_LINK'][rand];
-                var script_id1 = window['func_getlinkServer'](script_id);
-
-                var x6 = "https://script.google.com/macros/s/" + script_id1 + "/exec";
-                x6 = x6 + "?P=Express&para1=F001&para2=none]QQQ[" + '1xO2fOPwAjAEdeR_muzIRRPcSzG6lD3Z4VxTcOI9QP44'; //link MenuCuocQuocGia
-                x6 = x6 + "]QQQ[" + "00a";
-                x6 = x6 + "]QQQ[" + "select A, B, C, D, E";
-                var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
-                TaoHuyWorker(exp);
-
-              }
-
-              window.window['Func_Run02a'] = function(x5){
-                alert(window[x5]);
-              }
-						
-              worker_1('1','getND'); //1 là khởi tạo worker
-              Send_Worker_1();
+							RunFirstBegin();
 
 						}
 						window["Begin"](); 
