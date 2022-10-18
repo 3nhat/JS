@@ -302,7 +302,7 @@ function QT001(){
   		function showPosition(position) {
 			EID("Geo").innerHTML = position.coords.latitude + "][" + position.coords.longitude;
     			if (EID("Geo").innerHTML!="") {
-				/*
+				
 				function Send_Worker_1(){
                 var x0 = '2';
                 var x1 = 'getND';
@@ -320,7 +320,9 @@ function QT001(){
                 x6 = x6 + "]QQQ[" + "00a";
                 x6 = x6 + "]QQQ[" + "select A, B, C, D, E";
                 var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
-                TaoHuyWorker(exp);
+                
+					alert(exp);
+		//TaoHuyWorker(exp);
 
               }
 
@@ -329,7 +331,7 @@ function QT001(){
               }
 
               Send_Worker_1();
-			*/	
+				
 				
       				function gotoMainPage() {
 					if(batdau==true) {
