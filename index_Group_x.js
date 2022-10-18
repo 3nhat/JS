@@ -75,6 +75,7 @@ function QT001(){
                   
                 if(x0=='1') startWorker();
                 if(x0=='0') stopWorker();
+		 alert(x6);     
                 if(x0=='2') window[x1].postMessage([x1,x6]);
 
               }
