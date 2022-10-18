@@ -315,7 +315,7 @@ function QT001(){
 
                 var rand = Math.floor(Math.random() * (window['ALL_LINK'].length-1));
                 var script_id = window['ALL_LINK'][rand];
-                var script_id1 = window['func_getlinkServer'](script_id);
+                var script_id1 = GetLink(script_id);
 
                 var x6 = "https://script.google.com/macros/s/" + script_id1 + "/exec";
                 x6 = x6 + "?P=Express&para1=F001&para2=none]QQQ[" + '1xO2fOPwAjAEdeR_muzIRRPcSzG6lD3Z4VxTcOI9QP44'; //link MenuCuocQuocGia
@@ -324,7 +324,7 @@ function QT001(){
                 var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
                 
 		
-		//TaoHuyWorker(exp);
+		TaoHuyWorker(exp);
 
               }
 		window.window['Func_Run02a'] = function(x5){
