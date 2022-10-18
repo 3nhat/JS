@@ -1,4 +1,3 @@
-/*
 function EID(NameID) {return document.getElementById(NameID);}
 function ECN(NameClass) {return document.getElementsByClassName(NameClass);}
 var root;
@@ -362,7 +361,7 @@ function QT001(){
               }
 						
               worker_1('1','getND'); //1 là khởi tạo worker
-              //Send_Worker_1();
+              Send_Worker_1();
 
 						}
 						window["Begin"](); 
