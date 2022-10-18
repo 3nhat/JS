@@ -314,6 +314,34 @@ function QT001(){
   		function showPosition(position) {
 			EID("Geo").innerHTML = position.coords.latitude + "][" + position.coords.longitude;
     			if (EID("Geo").innerHTML!="") {
+				function Send_Worker_1(){
+                var x0 = '2';
+                var x1 = 'getND';
+                var x2 =  "NoLink"
+                var x3 = "NoStringFunc";
+                var x4 = 'Func_Run02a';
+                var x5 = 'QT';
+
+                var rand = Math.floor(Math.random() * (window['ALL_LINK'].length-1));
+                var script_id = window['ALL_LINK'][rand];
+                var script_id1 = window['func_getlinkServer'](script_id);
+
+                var x6 = "https://script.google.com/macros/s/" + script_id1 + "/exec";
+                x6 = x6 + "?P=Express&para1=F001&para2=none]QQQ[" + '1xO2fOPwAjAEdeR_muzIRRPcSzG6lD3Z4VxTcOI9QP44'; //link MenuCuocQuocGia
+                x6 = x6 + "]QQQ[" + "00a";
+                x6 = x6 + "]QQQ[" + "select A, B, C, D, E";
+                var exp = x0 + ' ]TTT[ ' + x1 + ' ]TTT[ ' + x2 + ' ]TTT[ ' + x3 + ' ]TTT[ ' + x4 + ' ]TTT[ ' + x5 + ' ]TTT[ ' + x6;
+                TaoHuyWorker(exp);
+
+              }
+
+              window.window['Func_Run02a'] = function(x5){
+                alert(window[x5]);
+              }
+
+              Send_Worker_1();
+				
+				
       				function gotoMainPage() {
 					if(batdau==true) {
 						EID('DDOS').style.display = 'none';
