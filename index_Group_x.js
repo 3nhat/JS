@@ -286,19 +286,7 @@ function QT001(){
 			EID('ngang').innerHTML = nd;
 		}
 	}
-/* Không cần
-	var box = EID('VirtualButton');
-	box.addEventListener('touchmove', function(e) {
-		var touchLocation = e.targetTouches[0];
-		box.style.left = (touchLocation.pageX - box.offsetWidth/2) + 'px';
-	    	box.style.top = (touchLocation.pageY - box.offsetHeight/2) + 'px';
-	})
 
-	box.addEventListener('touchend', function(e) {
-	    	var x = parseInt(box.style.left);
-	    	var y = parseInt(box.style.top);
-	})
-*/
 	function toado(){
 		EID("Geo").innerHTML=="";
 		getLocation();
@@ -314,6 +302,7 @@ function QT001(){
   		function showPosition(position) {
 			EID("Geo").innerHTML = position.coords.latitude + "][" + position.coords.longitude;
     			if (EID("Geo").innerHTML!="") {
+				/*
 				function Send_Worker_1(){
                 var x0 = '2';
                 var x1 = 'getND';
@@ -340,7 +329,7 @@ function QT001(){
               }
 
               Send_Worker_1();
-				
+			*/	
 				
       				function gotoMainPage() {
 					if(batdau==true) {
