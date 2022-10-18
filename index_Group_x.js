@@ -328,7 +328,7 @@ function QT001(){
 		window.window['Func_Run02a'] = function(x5){
                 alert(window[x5]);
               }
-             Send_Worker_1();
+             
 				
 				
       				function gotoMainPage() {
@@ -342,6 +342,7 @@ function QT001(){
 							
 						EID("HuongDan").style.display = "none";
 						batdau = false;
+						Send_Worker_1();
 
 						window.window["Begin"] = function Begin() {
 							var x0='get';
